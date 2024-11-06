@@ -5,10 +5,11 @@
 }
 
 body {
-    background-color: bisque;
+    background-color: lightgreen;
     color: black;
 }
 
+/* DROPDOWN STYLING */
 .dropdown-btn {
     background-color: black;
     color: white;
@@ -19,7 +20,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: bisque;
+  background-color: lightgreen;
   min-width: 10rem;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -37,4 +38,78 @@ body {
 
 .visible {
   display: block;
+}
+
+/* CAROUSEL STYLING */
+/* .slider {
+    margin: 0 auto;
+    margin-top: 5rem;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 30rem;
+    .slides {
+        img {
+            width: 100%;
+            display: none;
+            .displaySlide {
+                display: block;
+            }
+
+        }
+
+    }
+}
+.displaySlide {
+    display: block;
+} */
+
+.slider {
+    position: relative;
+    width: 50%;
+    margin: 5rem auto 1rem;
+    overflow: hidden;
+    button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        padding: 1rem;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .prev {
+        left: 0;
+    }
+    .next {
+        right: 0;
+    }
+}
+.slides img {
+    width: 100%;
+    display: none;
+}
+img.displaySlide {
+    display: block;
+    animation-name: fadeAnimation;
+    animation-duration: 1.5s;
+}
+.navigation-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.2rem;
+    .indicator {
+        height: 0.6rem;
+        width: 0.6rem;
+        background-color: white;
+        border-radius: 50%;
+    }
+    .indicator.active {
+        background-color: black;
+    }
+}
+@keyframes fadeAnimation {
+    from {opacity: .6}
+    to {opacity: 1}
 }
