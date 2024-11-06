@@ -1,30 +1,27 @@
 // DROPDOWN MENU
-const dropdownBtn = document.getElementById("btn");
-const dropdownMenu = document.getElementById("dropdown");
 
-// Toggle dropdown function
-const toggleDropdown = function () {
-  dropdownMenu.classList.toggle("show");
-};
+const dropdownButton = document.querySelector(".dropdown-btn");
+const dropdownContent = document.querySelector(".dropdown-content");
+const menuItems = dropdownContent.querySelectorAll("a");
 
-// Toggle dropdown open/close when dropdown button is clicked
-dropdownBtn.addEventListener("click", function (e) {
-  e.stopPropagation();
-  toggleDropdown();
+// dropdown becomes visible when button is clicked
+dropdownButton.addEventListener("click", (e) => {
+    e.stopPropagation(); // prevent the click event from bubbling up
+    dropdownContent.classList.toggle("visible");
 });
 
-// Close dropdown when clicking outside
-document.addEventListener("click", function (e) {
-  if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-    if (dropdownMenu.classList.contains("show")) {
-      toggleDropdown();
+// dropdown closes when clicking outside
+document.addEventListener("click", (e) => {
+    if (!dropdownButton.contains(e.target) && !dropdownContent.contains(e.target)) {
+        dropdownContent.classList.remove("visible");
     }
-  }
 });
 
-// Prevent closing when clicking inside the dropdown
-dropdownMenu.addEventListener("click", function (e) {
-  e.stopPropagation();
+// dropdown closes when menu item is clicked
+menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+        dropdownContent.classList.remove("visible");
+    });
 });
 
 // SLIDER
